@@ -65,9 +65,19 @@ dirichdof=[...
          
 %% modification
 
-params.modnodes=[19 20 21]
-params.modele =[9 10]
-params.ifacenode(params.modnodes)=0
-params.dofshift=params.dofshift;
+% no modification
+% params.modnodes=[];
+% params.modele =[];
+% 
+% params.ifacenode(params.modnodes)=3;
+% params.ifaceele(params.modele)=3;
+
+
+params.modnodes=[19 20 21];
+params.modele =[9 10];
+
+params.ifacenode(params.modnodes)=3;
+params.ifaceele(params.modele)=3;
+
        
  

@@ -94,12 +94,12 @@ params.alpha=@(y) y./4; %auf master bezogen
 
 dirichdof=[...
            dofs(find(nodes(:,2)==6)) [dofs(find(nodes(:,2)==6))*0]
-           dofs(numnodes-sizefac*2:numnodes) 0.2*ones(length(dofs(numnodes-sizefac*2:numnodes)),1)];
+           dofs(numnodes-sizefac*2:numnodes) 0.4*ones(length(dofs(numnodes-sizefac*2:numnodes)),1)];
 
        
 %% modification
 
-% % No modification
+% No modification
 % params.modnodes=[]
 % params.modele =[]
 % params.ifacenode(params.modnodes)=0
@@ -109,7 +109,7 @@ dirichdof=[...
 
 params.modnodes=numnodes-sizefac*2:numnodes
 params.modele =numele-sizefac*2+1:numele
-params.ifacenode(params.modnodes)=0
+params.ifacenode(params.modnodes)=3
 params.dofshift=params.dofshift
 
          
