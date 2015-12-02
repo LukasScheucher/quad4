@@ -5,7 +5,6 @@ axis off
 hold on
 
 for iele=1:length(elements)
-  elements(iele,:)
     curnodes=nodes(elements(iele,:),:)+disp(elements(iele,:),:);
 
     

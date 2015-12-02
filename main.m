@@ -11,20 +11,20 @@ setup3
 % plotconf(f,params,elements,nodes,disp)
 
 %%
-stiff = AssembleStiff(params,elements,nodes)
-[D,M]=gencouplingmatrices(params,elements,nodes)
+stiff = AssembleStiff(params,elements,nodes);
+[D,M]=gencouplingmatrices(params,elements,nodes);
 D=D.*(abs(D)>1e-5);
-LHS=stiff+(M-D+M'-D')*1000
-RHS=zeros(size(LHS,1),1) 
+LHS=stiff+(M-D+M'-D')*1000;
+RHS=zeros(size(LHS,1),1) ;
 %%
 imagesc(LHS==0)
 [LHS,RHS]=ApplyDirich(LHS,RHS,dirichdof);
 %RHS=ApplyNeumann(RHS,neumanndof);
 %%
 
-sol=LHS\RHS
+sol=LHS\RHS;
 
-disp=[sol(1:2:numnodes*2),sol(2:2:numnodes*2)]
+disp=[sol(1:2:numnodes*2),sol(2:2:numnodes*2)];
     
 
 
@@ -36,3 +36,15 @@ plotframe(f,params,elements,nodes)
 hold on
 
 plotdisp(f,params,elements,nodes,disp*4)
+
+%%
+f=figure()
+plotframe(f,params,elements,nodes)
+
+hold on
+for iele=7:length(elements)
+    
+ plotsf(f,elements,nodes,iele,params)
+ 
+    
+end

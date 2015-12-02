@@ -2,8 +2,8 @@ function stiff = AssembleStiff(params,elements,nodes)
 
 %only elements of reference size are considered here
 [gpxi,gpw] =gaussrulequad();
-numgp=length(gpw)
-numnodes=length(nodes)
+numgp=length(gpw);
+numnodes=length(nodes);
 numdof=numnodes*2;
 
 isnode=find(params.ifacenode==1);
@@ -12,12 +12,12 @@ numlagdof  =numlagnodes*2;
 
 
 
-stiff=zeros(numdof+numlagdof,numdof+numlagdof)
+stiff=zeros(numdof+numlagdof,numdof+numlagdof);
 
 
 
-E=params.E
-v=params.v
+E=params.E;
+v=params.v;
 
 if params.stresstype=='planestress'
     C=E/(1-v^2)*[...
@@ -34,14 +34,14 @@ end
 
 for iele=1:length(elements)
     curele=elements(iele,:);
-    curnodes=nodes(curele,:)
-    curdofs=dofs(curele)
+    curnodes=nodes(curele,:);
+    curdofs=dofs(curele);
     
-    elestiff=zeros(8,8)
+    elestiff=zeros(8,8);
     
     for igp=1:numgp
-      N =sval('quad4',gpxi(igp,:))
-      Nd =derivsval('quad4',gpxi(igp,:))
+      N =sval('quad4',gpxi(igp,:));
+      Nd =derivsval('quad4',gpxi(igp,:));
       
       NMat=[...
             Nd(1,1) 0         Nd(2,1) 0         Nd(3,1) 0         Nd(4,1) 0         
@@ -67,7 +67,7 @@ for iele=1:length(elements)
       end
               
         
-      elestiff=elestiff+NMat'*C*NMat*gpw(igp)
+      elestiff=elestiff+NMat'*C*NMat*gpw(igp);
        
     end
     

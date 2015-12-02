@@ -61,5 +61,13 @@ dirichdof=[...
            dofs(19) [0.2 0.2]'
            dofs(20) [0.2 0.2]'
            dofs(21) [0.2 0.2]'];
+         
+         
+%% modification
+
+params.modnodes=[19 20 21]
+params.modele =[9 10]
+params.ifacenode(params.modnodes)=0
+params.dofshift=params.dofshift;
        
  

@@ -99,18 +99,17 @@ dirichdof=[...
        
 %% modification
 
-% % No modification
-% params.modnodes=[]
-% params.modele =[]
-% params.ifacenode(params.modnodes)=0
-% params.dofshift=params.dofshift
-
-
-
-params.modnodes=numnodes-sizefac*2:numnodes
-params.modele =numele-sizefac*2+1:numele
+params.modnodes=[]
+params.modele =[]
 params.ifacenode(params.modnodes)=0
 params.dofshift=params.dofshift
+
+
+% 
+% params.modnodes=numnodes-sizefac*2:numnodes
+% params.modele =numele-sizefac*2+1:numele
+% params.ifacenode(params.modnodes)=0
+% params.dofshift=params.dofshift
 
          
 % disp=zeros(length(nodes),2);
