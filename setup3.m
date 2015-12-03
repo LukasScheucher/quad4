@@ -96,21 +96,37 @@ dirichdof=[...
            dofs(find(nodes(:,2)==6)) [dofs(find(nodes(:,2)==6))*0]
            dofs(numnodes-sizefac*2:numnodes) 0.2*ones(length(dofs(numnodes-sizefac*2:numnodes)),1)];
 
+dirichdof=[dofs(find(nodes(:,2)==6)) [dofs(find(nodes(:,2)==6))*0]   ]
+  
+
+bottomnodes=numnodes-sizefac*2:numnodes
+
+for curnode=bottomnodes
+  curdofs=dofs(curnode)
+  dirichdof=[...
+             dirichdof
+             curdofs(1) 0.0
+             curdofs(2) nodes(curnode,1)^2*0.025]
+  
+end     
+         
+         
+         
        
 %% modification
 
 % No modification
-% params.modnodes=[]
-% params.modele =[]
-% params.ifacenode(params.modnodes)=3
-% params.dofshift=params.dofshift
-
-
-
-params.modnodes=numnodes-sizefac*2:numnodes
-params.modele =numele-sizefac*2+1:numele
+params.modnodes=[]
+params.modele =[]
 params.ifacenode(params.modnodes)=3
-params.ifaceele(params.modele)=3;
+params.dofshift=params.dofshift
+
+
+
+% params.modnodes=numnodes-sizefac*2:numnodes
+% params.modele =numele-sizefac*2+1:numele
+% params.ifacenode(params.modnodes)=3
+% params.ifaceele(params.modele)=3;
 
          
 % disp=zeros(length(nodes),2);

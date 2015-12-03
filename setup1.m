@@ -67,7 +67,7 @@ dirichdof=[...
 
 % no modification
 % params.modnodes=[];
-% params.modele =[];
+% params.modele  =[];
 % 
 % params.ifacenode(params.modnodes)=3;
 % params.ifaceele(params.modele)=3;
