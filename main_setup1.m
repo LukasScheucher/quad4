@@ -25,9 +25,9 @@ stiff = AssembleStiff(params,elements,nodes);
 [M106]=gencouplingmat(params,nodes,elements(10,:),elements(6,:),  'mod','nomod',1,1);
 
 
-[M99]=gencouplingmat(params,nodes,elements(9,:),elements(9,:),    'mod','nomod',1,1);
+%[M99]=gencouplingmat(params,nodes,elements(9,:),elements(9,:),    'mod','nomod',1,1);
 %M99(:,[dofs(16) dofs(17)])=0;
-[M1010]=gencouplingmat(params,nodes,elements(10,:),elements(10,:),'mod','nomod',1,1);
+%[M1010]=gencouplingmat(params,nodes,elements(10,:),elements(10,:),'mod','nomod',1,1);
 %M1010(:,[dofs(17) dofs(18)])=0;
 
 

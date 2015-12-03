@@ -19,7 +19,7 @@
 % (10)-----(11)-----(12)-->x  %% (o)----(o)-----(o)----->x
 %
 
-sizefac=1; %determines, how many times smaller the slave elements are
+sizefac=2; %determines, how many times smaller the slave elements are
 
 nodes=[...
 0 2 4 0  2 4 0 2  4 0 2 4
@@ -88,13 +88,13 @@ params.stresstype='planestress',
 params.E=1000,
 params.v=0.3,
 
-params.alpha=@(y) y./4; %auf master bezogen
+params.alpha=@(y) 0.5;%y./4; %auf master bezogen
 
 
 
 dirichdof=[...
            dofs(find(nodes(:,2)==6)) [dofs(find(nodes(:,2)==6))*0]
-           dofs(numnodes-sizefac*2:numnodes) 0.4*ones(length(dofs(numnodes-sizefac*2:numnodes)),1)];
+           dofs(numnodes-sizefac*2:numnodes) 0.2*ones(length(dofs(numnodes-sizefac*2:numnodes)),1)];
 
        
 %% modification

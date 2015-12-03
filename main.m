@@ -3,7 +3,7 @@ close all
 clc
 
 
-setup1
+setup3
 
 
 %%
@@ -12,8 +12,10 @@ setup1
 
 %%
 stiff = AssembleStiff(params,elements,nodes);
-[D,M]=gencouplingmatrices(params,elements,nodes);
-D=D.*(abs(D)>1e-5);
+[D,M]=gencouplingmatrices2(params,elements,nodes);
+%%error('temporary exit');
+
+
 LHS=stiff+(M-D+M'-D')*1000;
 RHS=zeros(size(LHS,1),1) ;
 %%

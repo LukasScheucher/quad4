@@ -48,11 +48,11 @@ params.bodynode =[2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1];
 params.ifacenode=[0 0 0 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1];
 
 params.dofshift=18;
-params.stresstype='planestress'
-params.E=1000
-params.v=0.3
+params.stresstype='planestress';
+params.E=1000;
+params.v=0.3;
 
-params.alpha=@(y) 0.5%y./4; %auf master bezogen
+params.alpha=@(y) 0.5;%y./4; %auf master bezogen
 
 dirichdof=[...
            dofs(1) [0 0]'
