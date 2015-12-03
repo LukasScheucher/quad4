@@ -66,18 +66,25 @@ dirichdof=[...
 %% modification
 
 % no modification
-% params.modnodes=[];
-% params.modele =[];
+params.modnodes=[];
+params.modele =[];
+
+params.ifacenode(params.modnodes)=3;
+params.ifaceele(params.modele)=3;
+
+
+% params.modnodes=[19 20 21];
+% params.modele =[9 10];
 % 
 % params.ifacenode(params.modnodes)=3;
 % params.ifaceele(params.modele)=3;
 
 
-params.modnodes=[19 20 21];
-params.modele =[9 10];
-
-params.ifacenode(params.modnodes)=3;
-params.ifaceele(params.modele)=3;
+% % % % params.modnodes=[19];
+% % % % params.modele =[9];
+% % % % 
+% % % % params.ifacenode(params.modnodes)=3;
+% % % % params.ifaceele(params.modele)=3;
 
        
  

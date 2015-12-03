@@ -19,7 +19,7 @@
 % (10)-----(11)-----(12)-->x  %% (o)----(o)-----(o)----->x
 %
 
-sizefac=3; %determines, how many times smaller the slave elements are
+sizefac=1; %determines, how many times smaller the slave elements are
 
 nodes=[...
 0 2 4 0  2 4 0 2  4 0 2 4
@@ -102,7 +102,7 @@ dirichdof=[...
 % No modification
 % params.modnodes=[]
 % params.modele =[]
-% params.ifacenode(params.modnodes)=0
+% params.ifacenode(params.modnodes)=3
 % params.dofshift=params.dofshift
 
 
@@ -110,7 +110,7 @@ dirichdof=[...
 params.modnodes=numnodes-sizefac*2:numnodes
 params.modele =numele-sizefac*2+1:numele
 params.ifacenode(params.modnodes)=3
-params.dofshift=params.dofshift
+params.ifaceele(params.modele)=3;
 
          
 % disp=zeros(length(nodes),2);
