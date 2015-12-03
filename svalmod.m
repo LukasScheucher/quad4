@@ -21,17 +21,13 @@ Nmod=Nmod+(fac*summod).*(1-curmod');
 
 %%HACK
 
-% r=xi(1);
-% s=xi(2);
-% Nmod=[...
-%       0
-%       0
-%       (1+r)
-%       (1-r)]*0.5;
-
-
-
-
+r=xi(1);
+s=xi(2);
+Nmod=[...
+      0
+      0
+      (1+r)
+      (1-r)]*0.5;
 %%%% END HACK
 
 
@@ -40,10 +36,23 @@ Nmod=Nmod+(fac*summod).*(1-curmod');
 % r=xi(1);
 % s=xi(2);
 % Nmod=[...
-%       (1-r)*(1-s)
-%       (1+r)*(1-s)
-%       (1+r)*(1+s)
-%       (1-r)*(1+s)]*0.25;
+%       0
+%       0
+%       2+r+r*s
+%       2-r-r*s]*0.25;
+%%%% END HACK
+
+
+
+%%HACK
+
+% r=xi(1);
+% s=xi(2);
+% Nmod=[...
+%       0
+%       0
+%       0.5
+%       0.5]*0.5;
 %%%% END HACK
 
 

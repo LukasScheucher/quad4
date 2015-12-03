@@ -52,7 +52,7 @@ params.stresstype='planestress'
 params.E=1000
 params.v=0.3
 
-params.alpha=@(y) y./4; %auf master bezogen
+params.alpha=@(y) 0.5%y./4; %auf master bezogen
 
 dirichdof=[...
            dofs(1) [0 0]'
@@ -66,18 +66,18 @@ dirichdof=[...
 %% modification
 
 % no modification
-params.modnodes=[];
-params.modele =[];
-
-params.ifacenode(params.modnodes)=3;
-params.ifaceele(params.modele)=3;
-
-
-% params.modnodes=[19 20 21];
-% params.modele =[9 10];
+% params.modnodes=[];
+% params.modele =[];
 % 
 % params.ifacenode(params.modnodes)=3;
 % params.ifaceele(params.modele)=3;
+
+
+params.modnodes=[19 20 21];
+params.modele =[9 10];
+
+params.ifacenode(params.modnodes)=3;
+params.ifaceele(params.modele)=3;
 
 
 % % % % params.modnodes=[19];

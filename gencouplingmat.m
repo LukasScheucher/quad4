@@ -1,4 +1,4 @@
-function [Cg]=gencouplingmat(params,nodes,lagele,counterele,valids,validm)
+function [Cg]=gencouplingmat(params,nodes,lagele,counterele,modlag,modcounter,valids,validm)
 
    
     TOL=1e-12;
@@ -39,6 +39,13 @@ function [Cg]=gencouplingmat(params,nodes,lagele,counterele,valids,validm)
 %               Nl=svalmod(elements(il,:),params,xilag);
 %           end
 %%
+           if strcmp(modlag,'mod')
+             Nl=[...
+                    0
+                    0
+                    ( 1+xilag(1) )
+                    ( 1-xilag(1) )]*0.5;         
+           end
           
 %           T=[4 -2  1 -2
 %           -2  4 -2  1
@@ -47,6 +54,15 @@ function [Cg]=gencouplingmat(params,nodes,lagele,counterele,valids,validm)
 %           Nl=T*Nl;
 
           Nc =sval('quad4',xicounter);
+          
+          
+          if strcmp(modcounter,'mod')
+             Nl=[...
+                    0
+                    0
+                    ( 1+xilag(1) )
+                    ( 1-xilag(1) )]*0.5;         
+           end
 
           Nlmat=[...
                 Nl(1) 0     Nl(2) 0     Nl(3) 0     Nl(4) 0
