@@ -19,7 +19,7 @@
 % (10)-----(11)-----(12)-->x  %% (o)----(o)-----(o)----->x
 %
 
-sizefac=2; %determines, how many times smaller the slave elements are
+sizefac=5; %determines, how many times smaller the slave elements are
 
 nodes=[...
 0 2 4 0  2 4 0 2  4 0 2 4
@@ -86,9 +86,10 @@ params.ifacenode= [zeros(1,3) 2*ones(1,9) ones(1,numnodes-12)];
 params.dofshift=(2*sizefac+1)^2*2;
 params.stresstype='planestress',
 params.E=1000,
-params.v=0.3,
+params.v=0.0,
 
 params.alpha=@(y) 0.5;%y./4; %auf master bezogen
+params.dirichfun=@(x,y)x^2*0.025*4;
 
 
 
@@ -106,7 +107,7 @@ for curnode=bottomnodes
   dirichdof=[...
              dirichdof
              curdofs(1) 0.0
-             curdofs(2) nodes(curnode,1)^2*0.025]
+             curdofs(2) params.dirichfun(nodes(curnode,1),nodes(curnode,2))]
   
 end     
          
@@ -116,17 +117,17 @@ end
 %% modification
 
 % No modification
-params.modnodes=[]
-params.modele =[]
-params.ifacenode(params.modnodes)=3
-params.dofshift=params.dofshift
-
-
-
-% params.modnodes=numnodes-sizefac*2:numnodes
-% params.modele =numele-sizefac*2+1:numele
+% params.modnodes=[]
+% params.modele =[]
 % params.ifacenode(params.modnodes)=3
-% params.ifaceele(params.modele)=3;
+% params.dofshift=params.dofshift
+
+
+
+params.modnodes=numnodes-sizefac*2:numnodes
+params.modele =numele-sizefac*2+1:numele
+params.ifacenode(params.modnodes)=3
+params.ifaceele(params.modele)=3;
 
          
 % disp=zeros(length(nodes),2);

@@ -3,7 +3,7 @@ close all
 clc
 
 
-setup4
+setup1
 
 
 %%
@@ -37,7 +37,7 @@ plotframe(f,params,elements,nodes)
 
 hold on
 
-plotdisp(f,params,elements,nodes,disp*4)
+plotdisp(f,params,elements,nodes,disp)
 
 %%
 f=figure()

@@ -54,6 +54,8 @@ params.v=0.3;
 
 params.alpha=@(y) 0.5;%y./4; %auf master bezogen
 
+params.dirichfun=@(x,y)x^2*0.025*4;
+
 dirichdof=[...
            dofs(1) [0 0]'
            dofs(2) [0 0]'
@@ -61,6 +63,25 @@ dirichdof=[...
            dofs(19) [0.2 0.2]'
            dofs(20) [0.2 0.2]'
            dofs(21) [0.2 0.2]'];
+
+dirichdof=[...
+           dofs(1) [0 0]'
+           dofs(2) [0 0]'
+           dofs(3) [0 0]'];
+         
+         
+         
+bottomnodes=[19 20 21]
+
+for curnode=bottomnodes
+  curdofs=dofs(curnode)
+  dirichdof=[...
+             dirichdof
+             curdofs(1) 0.0
+             curdofs(2) params.dirichfun(nodes(curnode,1),nodes(curnode,2))]
+  
+end     
+     
          
          
 %% modification

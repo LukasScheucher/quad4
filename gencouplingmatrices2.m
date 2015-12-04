@@ -13,14 +13,14 @@ M=zeros(syssize,syssize);
 %% standard, nonmodified shit
 for il=isele_nomod
   for is=isele_nomod
-    D=D+gencouplingmat(params,nodes,elements(il,:),elements(is,:),'nomod','nomod','dualyes',1,1);
+    D=D+gencouplingmat(params,nodes,elements(il,:),elements(is,:),'nomod','nomod','dualno',1,1);
   end
 end
 
 
 for il=isele_nomod
   for im=imele_nomod
-    M=M+gencouplingmat(params,nodes,elements(il,:),elements(im,:),'nomod','nomod','dualyes',1,1);
+    M=M+gencouplingmat(params,nodes,elements(il,:),elements(im,:),'nomod','nomod','dualno',1,1);
   end
 end
 
@@ -28,14 +28,14 @@ end
 %% modified shit
 for il=isele_mod
   for is=isele_mod
-    D=D+gencouplingmat(params,nodes,elements(il,:),elements(is,:),'mod','nomod','dualyes',1,1);
+    D=D+gencouplingmat(params,nodes,elements(il,:),elements(is,:),'mod','nomod','dualno',1,1);
   end
 end
 
 
 for il=isele_mod
   for im=imele_nomod
-    M=M+gencouplingmat(params,nodes,elements(il,:),elements(im,:),'mod','nomod','dualyes',1,1);
+    M=M+gencouplingmat(params,nodes,elements(il,:),elements(im,:),'mod','nomod','dualno',1,1);
   end
 end
 

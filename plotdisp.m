@@ -31,4 +31,20 @@ for iele=1:length(elements)
 end
 
 
+
+
+%% plot dirichfun
+
+x=linspace(-1,5,100);
+y=linspace(0,0,100);
+
+yd=[]
+
+for i=1:100
+  yd=[yd,params.dirichfun(x(i),y(i))];
+end
+
+
+plot(x,y+yd);
+
 end
